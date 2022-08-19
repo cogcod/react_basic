@@ -1,43 +1,46 @@
 import React from 'react';
 import {useState} from "react";
 
-
-// let counter = 0;
-// function countUp(){
-//     setCount(count + 1);
-// }
-
 function Button() {
-    // const [ count, setCount ] = useState(0);
-    // const onClick = () => {
-    //     setCount((current) => current + 1);  // 자동으로 counter 수정
-    // }
-
     const [ minutes, setMinutes ] = useState();
     const onChange = (event) => {
-        setMinutes(event.target.value)
+        setMinutes(event.target.value)   // input의 value로 state값을 바꿔준다.
     }
 
+    const reset = () => setMinutes(0);  // onClick 이벤트시 실행 - 모든 state를 0으로 리셋
+
+    /*
+        1. input에 값을 입력하면 onChange 이벤트가 일어난다.
+        2. onChange 함수에서 input의 value를 업데이트 시킨다.
+        3. {minutes} 라는 state 값이 value로 바뀐다.
+    */
 
     return (
         <div>
             <h1>Super Converter</h1>
-            {/*<button onClick={ setCount((current) => current + 1) }>Click me</button>*/}
-            {/* setCount에는 변경할 값을 직접적으로 넣을 수도 있고, 함수도 넣을 수 있다. */}
 
-            <label for="minutes">Minutes</label>
-            <input
-                value={minutes}
-                id="minutes"
-                placeholder="Minutes"
-                type="number"
-                onChange={onChange}
-            />
+            <div>
+                <label for="minutes">Minutes</label>
+                <input
+                    value={minutes}
+                    id="minutes"
+                    placeholder="Minutes"
+                    type="number"
+                    onChange={onChange}           // input의 값이 변경되면 onChange 함수 실행 -> state 값 변경
+                />
+            </div>
 
-            <div>You want to convert {minutes}</div>
-
-            <label for="hours">Hours</label>
-            <input id="hours" placeholder="Hours" type="number"/>
+            <div>
+                <label for="hours">Hours</label>
+                <input
+                    value={Math.round(minutes / 60)}  // 분을 시간으로 변경 + 반올림
+                    id="hours"
+                    placeholder="Hours"
+                    type="number"
+                    disabled   // 사용 불가 
+                />
+            </div>
+            <button onClick={reset}>Reset</button>
         </div>
     );
 }
