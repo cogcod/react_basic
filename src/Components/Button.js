@@ -42,7 +42,7 @@ function Button() {
                     placeholder="Minutes"
                     type="number"
                     onChange={onChange}           // input의 값이 변경되면 onChange 함수 실행 -> state 값 변경
-                    disabled={flipped === true}   
+                    disabled={flipped}
                 />
             </div>
 
@@ -53,7 +53,7 @@ function Button() {
                     id="hours"
                     placeholder="Hours"
                     type="number"
-                    disabled={flipped === false}   // 사용불가 설정
+                    disabled={!flipped}   // 사용불가 설정
                 />
                 {/* flipped state의 기본값은 false이다. 이것을 이용해 disabled 값을 변경한다.  */}
             </div>
