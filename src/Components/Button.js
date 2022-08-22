@@ -70,8 +70,7 @@ function Button() {
             </div>
 
             <button onClick={reset}>Reset</button>
-
-            <button onClick={onFlip}>Flip</button>
+            <button onClick={onFlip}>{flipped ? "Turn back" : "Flip"}</button>
         </div>
     );
 }

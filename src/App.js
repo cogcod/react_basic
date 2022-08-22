@@ -1,10 +1,10 @@
-import Button from "./Components/Button";
 import React from "react";
+import Button2 from "./Components/Button2";
 
 function App() {
   return (
     <div>
-        <Button />
+        <Button2 />
     </div>
   );
 }
