@@ -11,18 +11,23 @@ function Render() {
 
     // 처음 렌더링 시 한번만 실행
     useEffect(() => {
-        console.log("Call the API...")
+        console.log("I run only once")
     },[])
-
-    console.log("전체 화면 렌더링 됨") // useEffect가 화면 렌더링 할 때마다 같이 실행
 
     //  특정 state(keyword)가 변화할 때만 실행
     useEffect(()=> {
-        // 컴포넌트가 처음 실행될 때 검색(실행)되지 않도록 : 빈값이 아니고 글자수가 5 이상일떄 함수실행
-        if(keyword !== "" && keyword.length > 5) {
-            console.log("SEARCH FOR", keyword)
-        }
+        console.log("I run when 'keyword' changes.")
     }, [keyword])
+
+    useEffect(()=> {
+        console.log("I run when 'counter' changes.")
+    }, [counter])
+
+    useEffect(()=> {
+        console.log("I run when 'keyword & counter' changes.")
+    }, [keyword, counter])
+
+    // -> 특정 state 변경 시 useEffect 안에 있는 코드만 실행된다!
 
 
     // --- Btn ---
