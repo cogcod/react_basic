@@ -1,8 +1,8 @@
 import React from "react";
-import Render from "./useEffect/Render";
+import Todo from "./todolist/Todo";
 
 function App() {
-    return <Render />
+    return <Todo />
 }
 
 export default App;
