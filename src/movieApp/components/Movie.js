@@ -16,6 +16,7 @@ function Movie({coverImg, title, summary, genres}){
     );
 }
 
+// prop의 type
 Movie.propTypes = {
     coverImg : PropTypes.string.isRequired,
     title : PropTypes.string.isRequired,

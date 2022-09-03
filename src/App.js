@@ -1,8 +1,17 @@
 import React from "react";
-import MovieApp from "./movieApp/MovieApp";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Home from "./movieApp/routes/Home";
+import Detail from "./movieApp/routes/Detail";
 
 function App() {
-    return <MovieApp />
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/movie" element={<Detail />} />
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
 export default App;
