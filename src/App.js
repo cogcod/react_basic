@@ -1,8 +1,8 @@
 import React from "react";
-import CoinTracker from "./coinTracker/CoinTracker";
+import MovieApp from "./movieApp/MovieApp";
 
 function App() {
-    return <CoinTracker />
+    return <MovieApp />
 }
 
 export default App;
