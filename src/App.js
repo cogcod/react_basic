@@ -1,8 +1,8 @@
 import React from "react";
-import Todo from "./todolist/Todo";
+import CoinTracker from "./coinTracker/CoinTracker";
 
 function App() {
-    return <Todo />
+    return <CoinTracker />
 }
 
 export default App;

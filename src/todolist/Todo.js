@@ -13,9 +13,15 @@ function Todo() {
             return
         }
 
-        // 여러개의 toDo를 받을 수 있는 array 만들기
-        // 현재 입력한 toDo와 이전의 모든 toDo 값들을 배열로 받기
-        // 처음 currentArray는 빈배열이고, toDo가 입력될 때마다 하나씩 추가된다.
+        /*
+            [ toDo를 받아 array 만들기 ]
+
+            setState((이전의 state, props) => // 코드 // )
+
+            - 현재 입력한 toDo와 이전의 모든 toDo 값들을 배열로 받기
+            - 처음 currentArray는 빈배열이고, toDo가 입력될 때마다 하나씩 추가된다
+            = 이전 state에 들어있는 모든 요소들(toDos)를 받아와서 새로운 toDo의 배열로 리턴하는 것!
+         */
         setToDos(currentArray => [toDo, ...currentArray])
 
         // input창 비우기
@@ -27,7 +33,7 @@ function Todo() {
          */
     }
 
-    console.log(toDos)
+    // console.log(toDos)
 
     return (
         <div>
@@ -41,6 +47,15 @@ function Todo() {
                 />
                 <button>Add To Do</button>
             </form>
+            <hr />
+
+            {/*
+                [ toDos 배열 아이템을 리스트로 뿌려주기 ]
+                - toDos에 들어있는 요소의 갯수만큼 map 함수가 실행되면서 새로운 배열을 만든다.
+            */}
+            <ul>
+                { toDos.map( (item, index) => <li key={index}>{item}</li> ) }
+            </ul>
         </div>
     );
 }
