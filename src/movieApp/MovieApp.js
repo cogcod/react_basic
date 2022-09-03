@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Movie from "./Movie";
 
 function MovieApp() {
     const [loading, setLoading] = useState(true)
@@ -23,16 +24,13 @@ function MovieApp() {
             { loading ? <h1>Loading...</h1> :
                 <div>
                     {movies.map((movie) =>
-                        <div key={movie.id}>
-                            <img src={movie.medium_cover_image} />
-                            <h2>{movie.title}</h2>
-                            <p>{movie.summary}</p>
-                            <ul>
-                                {movie.genres.map(g =>
-                                    <li key={g}>{g}</li>
-                                )}
-                            </ul>
-                        </div>
+                        <Movie
+                            key={movie.id}   //태그 안에 넣었던 key를 prop으로
+                            coverImg={movie.medium_cover_image}
+                            title={movie.title}
+                            summary={movie.summary}
+                            genres={movie.genres}
+                        />
                     )}
                 </div>
             }
