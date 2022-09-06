@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Movie from "../components/Movie";
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
             "https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year"
         )).json();
         setMovies(json.data.movies);
-        setLoading(false);
+        setLoading(false);       // 데이터를 받아오면 loading을 false로 바꾸고 Movie 컴포넌트 출력
     }
 
     useEffect(()=> {
@@ -26,6 +26,7 @@ function Home() {
                     {movies.map((movie) =>
                         <Movie
                             key={movie.id}   //태그 안에 넣었던 key를 prop으로
+                            id={movie.id}
                             coverImg={movie.medium_cover_image}
                             title={movie.title}
                             summary={movie.summary}

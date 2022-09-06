@@ -8,7 +8,8 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/movie" element={<Detail />} />
+                <Route path="/movie/:id" element={<Detail />} />
+                {/*  React Router에게 :id 에 오는 값이 뭔지 알고 싶다고 요청   */}
             </Routes>
         </BrowserRouter>
     )
